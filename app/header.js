@@ -6,9 +6,6 @@ import handleButtonClick2 from '../app/components/KakaoMap'
 export default function Header({ searchAuto, setInputValue }) {
     const router = useRouter();
 
-    // useEffect( () => {
-        
-    // })
     const [searchVisible, setSearchVisible] = useState(false);
     const [isActive, setIsActive] = useState(false);
 
