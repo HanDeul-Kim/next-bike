@@ -6,8 +6,20 @@ import handleButtonClick2 from '../app/components/KakaoMap'
 export default function Header({ searchAuto, setInputValue }) {
     const router = useRouter();
 
+    // useEffect( () => {
+        
+    // })
     const [searchVisible, setSearchVisible] = useState(false);
     const [isActive, setIsActive] = useState(false);
+    const [redirect, setRedirect] = useState(false);
+
+
+    useEffect( () => {
+        if (redirect) {
+            router.push('/')
+            setRedirect(false);
+        }
+    }, [redirect, router])
 
     const openSearch = () => {
         setSearchVisible(true);
@@ -16,18 +28,11 @@ export default function Header({ searchAuto, setInputValue }) {
         setSearchVisible(false);
     }
 
-
     return (
         <>
             <header>
                 <div className="left_nav">
-                    <Link href="/" className="logo" onClick=
-                    {
-                        useEffect( () => {
-                            router.push('/')
-                        }, [])
-                        
-                    }>
+                    <Link href="/" className="logo" onClick={ () => setRedirect(true)}>
                         <img src="../images/logo.png" alt="" />
                     </Link>
                     <ul>
